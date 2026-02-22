@@ -1,223 +1,220 @@
 # 🍔 Lunch Break Reminder System
 
-A Vue 3 + Vite web application featuring a global floating emoji animation system that triggers at specific times to remind you to take lunch breaks.
+A fun web app that reminds you to take lunch breaks with floating food emojis! 🎉
 
 ---
 
-## ✨ Features
+## What Does This App Do?
 
-- **Time-Based Trigger**: Automatically triggers at :00 and :30 of every hour
-- **25 Food Emojis**: Floating food emojis bounce around the screen (24px size)
-- **Toggle Control**: FAB button toggles animation on/off (🎉 to start, ⏹️ to stop)
-- **Toast Notification**: "It's lunch time, Go and take a rest! 😀" with 8-second auto-dismiss
-- **Real-time Clock**: 24-hour format display at bottom-left
-- **Full Screen Layout**: Responsive content overlay with gradient background
-- **10-Minute Animation**: 5s fade-in → 9m50s floating → 5s fade-out
-- **Performance Optimized**: requestAnimationFrame with GPU acceleration
-- **Smart Tab Handling**: Pauses when tab is hidden, resumes when active
-- **No Memory Leaks**: Proper cleanup of all timers and animations
-- **Trademark Footer**: "© 2026 Timothy Chan & Jade Lam All Rights Reserved"
+- 🍕 Shows floating food emojis on your screen
+- ⏰ Reminds you at **every hour** (like 9:00, 9:30, 10:00, etc.)
+- 🎯 Displays a friendly message: "It's lunch time, Go and take a rest!"
+- 🔘 You can also click a button to start/stop the animation anytime
 
 ---
 
-## 🚀 Quick Start
+## 📋 Requirements
 
-### Prerequisites
+Before you begin, you need to install one thing:
 
-- Node.js 18+ 
-- npm or yarn
+| Your Computer | What to Download |
+|---------------|------------------|
+| **Mac** | [Node.js for Mac](https://nodejs.org/dist/v20.11.0/node-v20.11.0.pkg) |
+| **Windows** | [Node.js for Windows](https://nodejs.org/dist/v20.11.0/node-v20.11.0-x64.msi) |
 
-### Installation
+**How to check if you already have Node.js:**
+- **Mac**: Open **Terminal** (press `Cmd + Space`, type "Terminal")
+- **Windows**: Open **Command Prompt** (press `Win + R`, type "cmd")
+- Type this command and press Enter:
+  ```
+  node -v
+  ```
+- If you see a version number (like `v20.11.0`), you're good to go!
+
+---
+
+## 🚀 Step-by-Step Installation
+
+### Step 1: Download the Code
+
+#### Option A: Download as ZIP (Easiest!)
+
+1. Go to: https://github.com/Aurora3301/floating-emoji-system
+2. Click the green **"Code"** button
+3. Click **"Download ZIP"**
+4. Extract the ZIP file to your Desktop
+
+#### Option B: Using Git (For Terminal Users)
+
+**Mac:**
+1. Open **Terminal** (Cmd + Space, type "Terminal")
+2. Type these commands (press Enter after each):
 
 ```bash
-# Navigate to project folder
-cd floating-emoji-system
+# Go to your Desktop
+cd Desktop
 
-# Install dependencies
+# Clone the repository
+git clone https://github.com/Aurora3301/floating-emoji-system.git
+```
+
+**Windows:**
+1. Open **Command Prompt** (Win + R, type "cmd")
+2. Type these commands (press Enter after each):
+
+```cmd
+cd %USERPROFILE%\Desktop
+
+git clone https://github.com/Aurora3301/floating-emoji-system.git
+```
+
+---
+
+### Step 2: Install the App
+
+**Mac - Terminal:**
+```bash
+# Go to the project folder
+cd Desktop/floating-emoji-system
+
+# Install the app
 npm install
+```
 
-# Start development server
+**Windows - Command Prompt:**
+```cmd
+cd /d %USERPROFILE%\Desktop\floating-emoji-system
+
+npm install
+```
+
+> ⚠️ **Wait** for the installation to finish (this takes 1-2 minutes)
+
+---
+
+### Step 3: Run the App
+
+**Mac - Terminal:**
+```bash
 npm run dev
 ```
 
-The app will open automatically at `http://localhost:3000`
-
-### Build for Production
-
-```bash
-npm run build
+**Windows - Command Prompt:**
+```cmd
+npm run dev
 ```
-
-Output will be in the `dist/` folder.
 
 ---
 
-## 📁 Project Structure
+### Step 4: Open the App in Your Browser
+
+1. Wait for Terminal/Command Prompt to say something like:
+   ```
+   Local: http://localhost:3000/
+   ```
+2. Open your web browser (Chrome, Safari, Edge, etc.)
+3. Type in the address bar: `http://localhost:3000`
+4. Press Enter
+
+🎉 **That's it!** The app should now be running!
+
+---
+
+## ❓ How to Use the App
+
+### Automatic Reminders
+- The app automatically shows floating emojis at **every hour** (like 9:00, 9:30, 10:00, etc.)
+- A message will appear: "It's lunch time, Go and take a rest! 😀"
+- The animation lasts for **10 minutes**
+
+### Manual Control
+- Look for the **red button** in the bottom-right corner
+- Click it to **start** or **stop** the animation anytime
+
+### Time Display
+- The current time (24-hour format) is shown in the **bottom-left** corner
+
+---
+
+## 🛠️ Troubleshooting
+
+### "npm is not recognized" Error
+
+**Windows:**
+1. Download and install Node.js from: https://nodejs.org
+2. Restart your computer
+3. Try again
+
+### "Port 3000 is already in use" Error
+
+This means another app is using port 3000. Try:
+1. Close other browser tabs
+2. Or change the port in the code (advanced)
+
+### App Not Loading
+
+1. Make sure you ran `npm install` first
+2. Make sure you ran `npm run dev`
+3. Try closing and reopening Terminal/Command Prompt
+4. Make sure your browser is up to date
+
+### The Animation Is Not Showing
+
+1. Keep the tab **active** (don't switch to another tab)
+2. Check the time - it only triggers at **:00 or :30** (like 9:00, 9:30, 10:00)
+3. Click the **red button** in the bottom-right to start manually
+
+---
+
+## 📁 Where Are the Files?
+
+After downloading, you'll have a folder called `floating-emoji-system` with these files:
 
 ```
 floating-emoji-system/
-├── src/
-│   ├── components/
-│   │   ├── FloatingEmoji/
-│   │   │   ├── FloatingEmoji.vue      # Main overlay component
-│   │   │   └── EmojiParticle.vue      # Individual emoji component
-│   │   ├── FloatingActionButton.vue   # FAB for manual trigger
-│   │   └── TimeDisplay.vue            # 24h clock display
-│   ├── composables/
-│   │   ├── useTimeTrigger.ts          # HH:00/HH:30 trigger logic
-│   │   ├── useAnimationEngine.ts      # Physics engine (RAF)
-│   │   ├── useEmojiManager.ts         # 10-min lifecycle manager
-│   │   └── useAlert.ts                # Toast notification
-│   ├── utils/
-│   │   └── constants.ts               # All configuration constants
-│   ├── App.vue                        # Root app component
-│   └── main.ts                        # App entry point
-├── index.html
-├── package.json
-├── vite.config.ts
-├── tsconfig.json
-└── README.md
+├── src/                    # The app code
+│   ├── components/        # Different parts of the app
+│   ├── composables/        # App logic
+│   └── utils/             # Settings
+├── package.json            # App information
+├── vite.config.ts          # App configuration
+└── README.md              # This file!
 ```
 
 ---
 
-## 🎮 How It Works
+## 🎨 Customization (Optional)
 
-### Time Trigger System
+Want to change the emojis or timing? You can edit the settings file!
 
-The system calculates the precise time until the next :00 or :30 mark:
+### Change the Reminder Message
 
-```
-If current time is 14:15 → Next trigger is 14:30 (15 minutes)
-If current time is 14:45 → Next trigger is 15:00 (15 minutes)
-```
-
-Uses a single `setTimeout` (no polling) and recalculates when the tab becomes visible if a trigger was missed.
-
-### Animation Lifecycle
-
-```
-Start
-  │
-  ├─► Fade In (5 seconds) ──► opacity: 0 → 1
-  │
-  ├─► Floating (9 minutes 50 seconds) ──► Physics animation
-  │                                    Emojis bounce within
-  │                                    150px of screen edges
-  │
-  ├─► Fade Out (5 seconds) ──► opacity: 1 → 0
-  │
-  └─► Stop ──► Cleanup all resources
-```
-
-### Physics Engine
-
-- **Medium Bounce**: Velocity 1.5-3.5 pixels per frame
-- **Boundary Collision**: Emojis bounce off 150px margins
-- **GPU Accelerated**: Uses `transform: translate3d()` for smooth 60fps
-- **Dynamic Bounds**: Updates on window resize
-
----
-
-## ⚙️ Customization
-
-### Change Emojis
-
-Edit `src/utils/constants.ts`:
-
-```typescript
-export const FOOD_EMOJIS = [
-  '🎉', '🎊', '✨', '🌟', '💫',
-  '🎈', '🎁', '🎀', '🎵', '🎶',
-  // ... add your custom emojis
-]
-```
-
-### Change Trigger Times
-
-Edit `TIME_TRIGGER_CONFIG`:
-
-```typescript
-export const TIME_TRIGGER_CONFIG = {
-  triggerMinutes: [0, 15, 30, 45],  // Every 15 minutes
-  // ...
-}
-```
+1. Open the file: `src/utils/constants.ts`
+2. Find this line:
+   ```typescript
+   message: "It's lunch time, Go and take a rest! 😀",
+   ```
+3. Change the text inside the quotes to whatever you want
+4. Save the file
+5. The app will update automatically!
 
 ### Change Emoji Size
 
-Edit `ANIMATION_CONFIG`:
-
+In the same file, find:
 ```typescript
-export const ANIMATION_CONFIG = {
-  emojiSize: 24,      // Emoji size in pixels (default: 24px, original: 48px)
-  // ...
-}
+emojiSize: 35,
 ```
-
-### Change Animation Duration
-
-Edit `ANIMATION_CONFIG`:
-
-```typescript
-export const ANIMATION_CONFIG = {
-  totalDuration: 5 * 60 * 1000,     // 5 minutes instead of 10
-  fadeInDuration: 3 * 1000,          // 3 seconds fade-in
-  fadeOutDuration: 3 * 1000,         // 3 seconds fade-out
-  // ...
-}
-```
-
-### Change Toast Message
-
-Edit `ALERT_CONFIG`:
-
-```typescript
-export const ALERT_CONFIG = {
-  message: "Your custom message here! 🎉",
-  autoDismissDuration: 10 * 1000,    // 10 seconds
-  // ...
-}
-```
+Change `35` to any number (bigger = bigger emojis)
 
 ---
 
-## 🏗️ Architecture
+## 📝 Commands Reference
 
-| Composable | Responsibility |
-|------------|----------------|
-| `useTimeTrigger` | Precise :00/:30 scheduling without polling |
-| `useAnimationEngine` | Physics loop with RAF, boundary collision |
-| `useEmojiManager` | 10-min lifecycle, fade in/out management |
-| `useAlert` | Toast notification with auto-dismiss |
-
-### Performance Features
-
-- ✅ Single RAF loop for all 25 emojis
-- ✅ Direct DOM updates (no Vue reactivity overhead)
-- ✅ Pauses when tab hidden
-- ✅ Cleans up all timeouts and RAF on unmount
-- ✅ GPU-accelerated transforms
-- ✅ No excessive watchers
-
----
-
-## 📝 Scripts
-
-```bash
-npm run dev       # Start development server
-npm run build     # Build for production
-npm run preview   # Preview production build
-```
-
----
-
-## 🛠️ Technologies
-
-- **Vue 3** - Composition API
-- **Vite** - Build tool
-- **TypeScript** - Type safety
-- **No External Animation Libraries** - Pure JavaScript + requestAnimationFrame
+| Command | What It Does |
+|---------|--------------|
+| `npm install` | Install the app (do this once) |
+| `npm run dev` | Start the app |
+| `npm run build` | Create a production version |
 
 ---
 
@@ -229,49 +226,13 @@ All Rights Reserved.
 
 ---
 
-## 🎨 UI Elements
+## 💬 Need Help?
 
-- **Time Display**: Bottom-left corner, 24-hour format, dark semi-transparent background
-- **FAB Button**: Bottom-right corner, toggle button (🎉 to start, ⏹️ to stop)
-- **Toast Notification**: Top-center, coral background, auto-dismisses in 8 seconds
-- **Floating Emojis**: Full-screen overlay, 25 emojis (24px) bouncing within 150px margins
-- **Trademark Footer**: Bottom-center, "© 2026 Timothy Chan & Jade Lam All Rights Reserved"
-- **Full Screen Layout**: Gradient background with centered content card
+If you have any questions or run into issues:
+1. Check the **Troubleshooting** section above
+2. Search for your error message online
+3. Feel free to ask for help!
 
 ---
 
-## 🔧 Troubleshooting
-
-### Animation not triggering?
-- Check browser console for trigger schedule logs
-- Ensure tab is active (visible)
-- Check system time is correct
-
-### Performance issues?
-- Reduce `emojiCount` in constants
-- Close other browser tabs
-- Check for browser extensions interfering
-
-### Emojis not visible?
-- Check z-index (should be 9999)
-- Verify `pointer-events: none` is set
-- Check opacity is not stuck at 0
-
----
-
-## 💡 Tips
-
-1. The animation is designed for **desktop only**
-2. Keep the tab **active** for triggers to work
-3. Use the **FAB button** to toggle animation on/off anytime
-   - 🎉 Click to **start** the animation
-   - ⏹️ Click to **stop** the animation
-4. All settings are in `src/utils/constants.ts`
-5. Check browser console for debug logs
-6. The **trademark footer** is displayed at the bottom center
-7. **Emoji size** is set to 24px (50% smaller than original)
-
----
-
-**Built with ❤️ by Timothy Chan & Jade Lam**
-# Floating Emoji System
+**Made with ❤️ by Timothy Chan & Jade Lam**
